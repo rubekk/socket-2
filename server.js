@@ -3,6 +3,7 @@ const app=express();
 const http=require("http");
 const server=http.createServer(app);
 const io = require("socket.io")(server);
+const PORT=process.env.PORT || 3000;
 
 const players=[];
 
@@ -57,6 +58,4 @@ app.get('/', (req, res) => {
 	res.sendFile(__dirname+'/index.html');
 });
 
-server.listen(3000,()=>{
-	console.log("listening on server 3000...");
-})
+server.listen(PORT);
